@@ -1,56 +1,156 @@
+
 <!DOCTYPE html>
-<html lang="en">
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animes Brasi</title>
-    <title>Desenvolvimento Web</title>
+    <title>Desenvolvimento Web - Arthur Bueno de Lucena</title>
     <style>
+        :root {
+            /* Modo Claro (Default) */
+            --bg-color: #eef6ff;
+            --text-color: #1a202c;
+            --header-color: #0f172a;
+            --box-bg: #ffffff;
+            --box-shadow: rgba(15, 23, 42, 0.08);
+            --card-title: #1e3a8a;
+            --btn-bg: #f1f5f9;
+            --btn-border: #cbd5e1;
+            --btn-hover: #e2e8f0;
+        }
+
+        [data-theme="dark"] {
+            /* Modo Escuro */
+            --bg-color: #0f172a;
+            --text-color: #f1f5f9;
+            --header-color: #38bdf8;
+            --box-bg: #1e293b;
+            --box-shadow: rgba(0, 0, 0, 0.4);
+            --card-title: #60a5fa;
+            --btn-bg: #334155;
+            --btn-border: #475569;
+            --btn-hover: #475569;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-align: center;
-            background-color: #2b1055;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             min-height: 100vh;
             margin: 0;
             padding: 20px;
-            color: white;
+            transition: background-color 0.3s, color 0.3s;
         }
+
+        .header-container {
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            margin: 5px 0;
+            color: var(--header-color);
+            font-size: 1.8rem;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            font-weight: normal;
+        }
+
+        /* Botão Alternar Tema */
+        .theme-toggle-btn {
+            background-color: var(--box-bg);
+            color: var(--text-color);
+            border: 2px solid var(--card-title);
+            padding: 10px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px var(--box-shadow);
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle-btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        /* Container dos Posts */
         .box {
-            background: white;
-            color: #333;
-            padding: 20px;
-            margin: 15px auto;
-            max-width: 450px;
-            border-radius: 8px;
+            background: var(--box-bg);
+            color: var(--text-color);
+            padding: 25px;
+            margin: 20px auto;
+            max-width: 500px;
+            border-radius: 12px;
             text-align: left;
+            box-shadow: 0 4px 12px var(--box-shadow);
+            transition: background-color 0.3s, transform 0.2s;
         }
+
+        .box:hover {
+            transform: translateY(-3px);
+        }
+
         .box h3 {
             margin-top: 0;
-            color: #2b1055;
-            text-align: center;
+            color: var(--card-title);
+            font-size: 1.3rem;
+            border-bottom: 2px solid var(--btn-border);
+            padding-bottom: 8px;
         }
+
+        .box p {
+            line-height: 1.6;
+            font-size: 1.05rem;
+            margin: 15px 0;
+        }
+
         .actions {
             display: flex;
             justify-content: flex-end;
-            gap: 10px;
-            margin-top: 15px;
+            gap: 12px;
+            margin-top: 20px;
         }
+
         .actions button {
-            background: #f0f0f5;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 5px 10px;
+            background: var(--btn-bg);
+            color: var(--text-color);
+            border: 1px solid var(--btn-border);
+            border-radius: 8px;
+            padding: 8px 14px;
+            font-size: 0.95rem;
+            font-weight: 600;
             cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        .actions button:hover {
+            background: var(--btn-hover);
+        }
+
+        .actions button:active {
+            transform: scale(0.95);
         }
     </style>
 </head>
 <body>
-    <h1>por:Arthur Bueno de Lucena</h1>
-    <h1>Desenvolvimento Web</h1>
+
+    <button class="theme-toggle-btn" id="themeToggle" onclick="alternarTema()">
+        🌙 Modo Escuro
+    </button>
+
+    <div class="header-container">
+        <h1>Desenvolvimento Web</h1>
+        <div class="subtitle">por: Arthur Bueno de Lucena</div>
+    </div>
 
     <div class="box">
-        <h3>Meu primeiro post:HTML</h3>
+        <h3>Meu primeiro post: HTML</h3>
         <p>É o formato clássico dos arquivos que guarda a estrutura e o texto das páginas da internet.
         Ele organiza elementos como textos, títulos, imagens, links e botões usando marcas chamadas tags.</p>
         <div class="actions">
@@ -60,7 +160,7 @@
     </div>
 
     <div class="box">
-        <h3>Meu segundo post:CSS</h3>
+        <h3>Meu segundo post: CSS</h3>
         <p>É a linguagem usada para estilizar e definir a aparência visual de uma página web.
         Com ele, você controla cores, fontes, tamanhos, espaçamentos e o layout de todos os elementos criados no HTML.</p>
         <div class="actions">
@@ -70,7 +170,7 @@
     </div>
 
     <div class="box">
-        <h3>Meu terçeiro post:JavaScript</h3>
+        <h3>Meu terceiro post: JavaScript</h3>
         <p>O JavaScript é a linguagem de programação que adiciona interatividade e comportamento dinâmico às páginas web. Com ele, você cria animações, menus interativos, atualizações de conteúdo em tempo real e reações aos cliques do usuário.</p>
         <div class="actions">
             <button onclick="votar(this)">👍 <span>0</span></button>
@@ -83,8 +183,20 @@
             const span = botao.querySelector('span');
             span.textContent = parseInt(span.textContent) + 1;
         }
+
+        function alternarTema() {
+            const body = document.body;
+            const btn = document.getElementById('themeToggle');
+            
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                btn.innerHTML = '🌙 Modo Escuro';
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                btn.innerHTML = '☀️ Modo Claro';
+            }
+        }
     </script>
 
 </body>
-</html>
 </html>
